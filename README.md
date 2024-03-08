@@ -1,9 +1,18 @@
 # Summarization Test
 
-- [ ] Configure a python environment with hugging face transformers
-- [ ] Loading a text summarization model
-- [ ] Bundle the app with `PyInstaller`
+- [x] Configure a python environment with hugging face transformers
+- [x] Loading a text summarization model
+- [x] Bundle the app with `PyInstaller`
 
+## Result of test
+
+PyInstaller seems to be able to bundle pytorch and HF transformers into an executable just fine on Linux. I tested both CPU and CUDA variants of pytorch and they both worked.
+
+For GPU acceleration, the system needs CUDA / NVIDIA deps installed separately, so maybe that could be handled by a bash script on Linux and an equivalent script or "installer" program on Windows / Mac.
+
+Overall I think this is a positive proof-of-concept, which means if I want to use HF stack in memory cache we can probably just do that. 
+
+I will need to test the same on Windows and Mac, and I will also need to figure out how to get whatever dependencies (e.g. CUDA) installed on the target system during the install process.
 
 ## Link dump
 
@@ -65,7 +74,7 @@ pip install pyinstaller
 Invoke `PyInstaller` to bundle the app:
 
 ``` sh
-pyinstaller --onefile summarize.py
+pyinstaller --onefile summarize.py --clean
 ```
 
 
