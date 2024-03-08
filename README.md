@@ -77,4 +77,11 @@ Invoke `PyInstaller` to bundle the app:
 pyinstaller --onefile summarize.py --clean
 ```
 
+Run the bundled app:
+
+``` sh
+./dist/summarize
+```
+
+![screenshot](./screenshot.png)
 
